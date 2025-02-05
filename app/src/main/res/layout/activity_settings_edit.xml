@@ -7,33 +7,23 @@
     android:layout_height="match_parent"
     tools:context=".SettingsEditActivity">
 
-    <LinearLayout
-        android:id="@+id/registerLL"
-        android:layout_width="317dp"
-        android:layout_height="467dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.428"></LinearLayout>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/dashboardHub"
         android:layout_width="291dp"
         android:layout_height="91dp"
         android:layout_marginTop="30dp"
-        android:background="#D4D5D5"
+        android:background="#F3F3F3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.944">
+        app:layout_constraintVertical_bias="0.931">
 
         <ImageButton
             android:id="@+id/dashboardButton"
             android:layout_width="72dp"
             android:layout_height="68dp"
+            android:background="#F3F3F3"
             android:onClick="dashboardButton"
             android:src="@drawable/dashboard_icon"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -47,6 +37,7 @@
             android:id="@+id/historyButton"
             android:layout_width="82dp"
             android:layout_height="77dp"
+            android:background="#F3F3F3"
             android:onClick="historyButton"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -59,6 +50,7 @@
             android:id="@+id/settingsButton"
             android:layout_width="78dp"
             android:layout_height="74dp"
+            android:background="#F3F3F3"
             android:onClick="settingsButton"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -68,6 +60,17 @@
             app:layout_constraintVertical_bias="0.588"
             app:srcCompat="@drawable/settings_icon" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/registerLL"
+        android:layout_width="317dp"
+        android:layout_height="467dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.428"></LinearLayout>
 
     <TextView
         android:id="@+id/textView9"

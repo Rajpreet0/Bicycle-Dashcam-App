@@ -7,36 +7,23 @@
     android:layout_height="match_parent"
     tools:context=".SettingsActivity">
 
-    <TextView
-        android:id="@+id/deleteTextview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="deleteButton"
-        android:text="Delete Account"
-        android:textColor="#D11013"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.621"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.359" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/dashboardHub"
         android:layout_width="291dp"
         android:layout_height="91dp"
         android:layout_marginTop="30dp"
-        android:background="#D4D5D5"
+        android:background="#F3F3F3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.944">
+        app:layout_constraintVertical_bias="0.931">
 
         <ImageButton
             android:id="@+id/dashboardButton"
             android:layout_width="72dp"
             android:layout_height="68dp"
+            android:background="#F3F3F3"
             android:onClick="dashboardButton"
             android:src="@drawable/dashboard_icon"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -50,6 +37,7 @@
             android:id="@+id/historyButton"
             android:layout_width="82dp"
             android:layout_height="77dp"
+            android:background="#F3F3F3"
             android:onClick="historyButton"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -62,6 +50,7 @@
             android:id="@+id/settingsButton"
             android:layout_width="78dp"
             android:layout_height="74dp"
+            android:background="#F3F3F3"
             android:onClick="settingsButton"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -71,6 +60,43 @@
             app:layout_constraintVertical_bias="0.588"
             app:srcCompat="@drawable/settings_icon" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="419dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="23dp"
+        android:text="-------------------------------------------------------------------------------------------------------------------------------"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deleteTextview" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="419dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="41dp"
+        android:text="-------------------------------------------------------------------------------------------------------------------------------"
+        app:layout_constraintBottom_toBottomOf="@+id/deleteTextview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/deleteTextview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="deleteButton"
+        android:text="Delete Account"
+        android:textColor="#D11013"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.621"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.359" />
 
     <TextView
         android:id="@+id/textView4"
@@ -100,15 +126,16 @@
 
     <ImageButton
         android:id="@+id/nextButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="43dp"
+        android:background="#FEFDFB"
         android:onClick="nextButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.693"
+        app:layout_constraintHorizontal_bias="0.706"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.248"
+        app:layout_constraintVertical_bias="0.238"
         app:srcCompat="@drawable/arrow_settings" />
 
     <TextView
