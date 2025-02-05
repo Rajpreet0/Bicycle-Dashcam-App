@@ -5,7 +5,21 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SettingsActivity">
+
+    <TextView
+        android:id="@+id/deleteTextview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="deleteButton"
+        android:text="Delete Account"
+        android:textColor="#D11013"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.621"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.359" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/dashboardHub"
@@ -59,10 +73,10 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="History"
+        android:text="Settings"
         android:textColor="#78B3CE"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -71,4 +85,55 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.056" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Persönliche Daten aktualisieren"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.206"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.244" />
+
+    <ImageButton
+        android:id="@+id/nextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="nextButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.693"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.248"
+        app:srcCompat="@drawable/arrow_settings" />
+
+    <TextView
+        android:id="@+id/logoutTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="logoutButton"
+        android:text="Log Out"
+        android:textColor="#D11013"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.215"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.359" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="419dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="41dp"
+        android:text="-------------------------------------------------------------------------------------------------------------------------------"
+        app:layout_constraintBottom_toBottomOf="@+id/deleteTextview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 </androidx.constraintlayout.widget.ConstraintLayout>
