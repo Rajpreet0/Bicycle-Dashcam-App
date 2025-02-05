@@ -338,4 +338,10 @@ class ConnectionActivity : AppCompatActivity() {
         val intent: Intent = Intent(this, DashboardActivity::class.java)
         startActivity(intent)
     }
+
+    fun generateButton(view: View) {
+        val intent = Intent(this, ReportActivity::class.java)
+        startActivity(intent)
+
+    }
 }

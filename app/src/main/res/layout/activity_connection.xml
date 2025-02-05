@@ -65,14 +65,23 @@
         android:text="Standort: Nicht verfügbar"
         android:textSize="16sp" />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="170dp"
+        android:layout_height="59dp"
+        android:layout_gravity="center_horizontal"
+        android:onClick="generateButton"
+        android:backgroundTint="#78B3CE"
+        android:text="Anzeige prüfen" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="354dp"
+        android:layout_height="144dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/dashboardHub"
-            android:layout_width="291dp"
-            android:layout_height="91dp"
+            android:layout_width="301dp"
+            android:layout_height="122dp"
             android:layout_marginTop="30dp"
             android:background="#F3F3F3"
             app:layout_constraintBottom_toBottomOf="parent"

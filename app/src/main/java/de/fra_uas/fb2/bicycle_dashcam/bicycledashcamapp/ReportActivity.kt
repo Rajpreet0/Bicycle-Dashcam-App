@@ -5,7 +5,13 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import de.fra_uas.fb2.bicycle_dashcam.bicycledashcamapp.helpers.NetworkHelper
 import de.fra_uas.fb2.bicycle_dashcam.bicycledashcamapp.helpers.SessionManager
@@ -16,41 +22,46 @@ import kotlinx.coroutines.withContext
 import org.json.JSONObject
 import java.io.IOException
 
-class SettingsEditActivity : AppCompatActivity() {
+class ReportActivity : AppCompatActivity() {
 
-    private lateinit var sessionManager: SessionManager
-    private val networkHelper = NetworkHelper()
-
-    // UI Elements
     private lateinit var lastnameInput: EditText
     private lateinit var firstnameInput: EditText
+    private lateinit var genderGroup: RadioGroup
     private lateinit var birthdayInput: EditText
     private lateinit var birthplaceInput: EditText
     private lateinit var birthcountryInput: EditText
     private lateinit var addressInput: EditText
     private lateinit var telephoneInput: EditText
     private lateinit var emailInput: EditText
-    private lateinit var genderGroup: RadioGroup
+    private lateinit var dateInput: EditText
+    private lateinit var timeInput: EditText
+    private lateinit var crimeStateInput: EditText
+    private lateinit var crimeCountryInput: EditText
+    private lateinit var crimeLocationInput: EditText
+    private lateinit var crimeStreetInput: EditText
     private lateinit var btnUpdate: Button
+    private lateinit var sessionManager: SessionManager
+    private var networkHelper = NetworkHelper()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_settings_edit)
-
+        setContentView(R.layout.activity_report)
         sessionManager = SessionManager(this)
 
-        val parentLayout = findViewById<LinearLayout>(R.id.registerLL)
-        var idCounter = 2000 // Different ID range to avoid conflicts
+        val parentLayout = findViewById<LinearLayout>(R.id.linearLayoutScrollView)
+        var idCounter = 2000 // Unique ID range to avoid conflicts
 
+        // Existing fields
         lastnameInput = createEditText("Nachname", sessionManager.getLastName(), idCounter++)
         parentLayout.addView(lastnameInput)
 
         firstnameInput = createEditText("Vorname", sessionManager.getFirstName(), idCounter++)
         parentLayout.addView(firstnameInput)
 
-        val genderLabel = TextView(this)
-        genderLabel.text = "Geschlecht"
-        genderLabel.setPadding(20, 10, 20, 10)
+        val genderLabel = TextView(this).apply {
+            text = "Geschlecht"
+            setPadding(20, 10, 20, 10)
+        }
         parentLayout.addView(genderLabel)
 
         genderGroup = createRadioGroup(sessionManager.getGender(), idCounter++)
@@ -62,23 +73,38 @@ class SettingsEditActivity : AppCompatActivity() {
         birthplaceInput = createEditText("Geburtsort", sessionManager.getBirthplace(), idCounter++)
         parentLayout.addView(birthplaceInput)
 
-        birthcountryInput = createEditText("Geburtsland", sessionManager.getBirthCountry(), idCounter++)
+        birthcountryInput =
+            createEditText("Geburtsland", sessionManager.getBirthCountry(), idCounter++)
         parentLayout.addView(birthcountryInput)
 
         addressInput = createEditText("Anschrift", sessionManager.getAddress(), idCounter++)
         parentLayout.addView(addressInput)
 
-        telephoneInput = createEditText("Telefonnummer", sessionManager.getTelephoneNumber(), idCounter++)
+        telephoneInput =
+            createEditText("Telefonnummer", sessionManager.getTelephoneNumber(), idCounter++)
         parentLayout.addView(telephoneInput)
 
         emailInput = createEditText("Email", sessionManager.getUserEmail(), idCounter++)
         parentLayout.addView(emailInput)
 
-        btnUpdate = Button(this).apply {
-            text = "Update"
-            setOnClickListener { updateBtn() }
-        }
-        parentLayout.addView(btnUpdate)
+        // New fields
+//        dateInput = createEditText("Datum", sessionManager.getDate(), idCounter++)
+//        parentLayout.addView(dateInput)
+//
+//        timeInput = createEditText("Uhrzeit", sessionManager.getTime(), idCounter++)
+//        parentLayout.addView(timeInput)
+//
+//        crimeStateInput = createEditText("Tatbundesland", sessionManager.getCrimeState(), idCounter++)
+//        parentLayout.addView(crimeStateInput)
+//
+//        crimeCountryInput = createEditText("Tatland", sessionManager.getCrimeCountry(), idCounter++)
+//        parentLayout.addView(crimeCountryInput)
+//
+//        crimeLocationInput = createEditText("Tatort", sessionManager.getCrimeLocation(), idCounter++)
+//        parentLayout.addView(crimeLocationInput)
+//
+//        crimeStreetInput = createEditText("Tatstraße", sessionManager.getCrimeStreet(), idCounter++)
+//        parentLayout.addView(crimeStreetInput)
     }
 
     private fun createEditText(hint: String, text: String?, id: Int): EditText {
@@ -100,60 +126,19 @@ class SettingsEditActivity : AppCompatActivity() {
             this.id = id
             val options = listOf("männlich", "weiblich", "divers")
             options.forEach { option ->
-                val radioButton = RadioButton(this@SettingsEditActivity)
-                radioButton.text = option
-                if (option.equals(selectedGender, ignoreCase = true)) {
-                    radioButton.isChecked = true
+                val radioButton = RadioButton(this@ReportActivity).apply {
+                    text = option
+                    isChecked = option.equals(selectedGender, ignoreCase = true)
                 }
                 addView(radioButton)
             }
         }
     }
 
-    fun updateBtn() {
-        val selectedGenderId = genderGroup.checkedRadioButtonId
-        val selectedGender = findViewById<RadioButton>(selectedGenderId)?.text?.toString() ?: ""
-
-        val userId = sessionManager.getUserId() ?: return
-
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
-                val response = networkHelper.updateUserData(
-                    id = userId,
-                    lastname = lastnameInput.text.toString(),
-                    firstname = firstnameInput.text.toString(),
-                    gender = selectedGender,
-                    birthday = birthdayInput.text.toString(),
-                    birthplace = birthplaceInput.text.toString(),
-                    birthcountry = birthcountryInput.text.toString(),
-                    address = addressInput.text.toString(),
-                    telephoneNumber = telephoneInput.text.toString(),
-                    email = emailInput.text.toString()
-                )
-
-                val userData = JSONObject(response.toString())
-
-                withContext(Dispatchers.Main) {
-                    Log.d("Data from Update:", userData.toString())
-                    Toast.makeText(
-                        applicationContext,
-                        "User updated successfully!",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    val intent = Intent(this@SettingsEditActivity, SettingsActivity::class.java)
-                    startActivity(intent)
-                }
-            } catch (e: IOException) {
-                withContext(Dispatchers.Main) {
-                    Log.d("SERVER ERROR", "Update failed - ${e.message}")
-                    Toast.makeText(applicationContext, "Update failed", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
-
-
+    fun generateButton(view: View) {
 
     }
+
     fun historyButton(view: View) {
         val intent: Intent = Intent(this, HistoryActivity::class.java)
         startActivity(intent)
