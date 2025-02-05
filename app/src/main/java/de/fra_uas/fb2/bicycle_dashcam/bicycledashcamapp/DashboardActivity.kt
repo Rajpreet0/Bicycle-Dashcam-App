@@ -3,12 +3,18 @@ package de.fra_uas.fb2.bicycle_dashcam.bicycledashcamapp
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import de.fra_uas.fb2.bicycle_dashcam.bicycledashcamapp.helpers.SessionManager
 
 class DashboardActivity : AppCompatActivity() {
+
+    private lateinit var sessionManager: SessionManager
+    private lateinit var usernameText: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,6 +26,12 @@ class DashboardActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        sessionManager = SessionManager(this)
+        usernameText = findViewById(R.id.usernameTextView);
+
+        usernameText.setText("Hey, " + sessionManager.getFirstName() +  "👋")
+
     }
 
     fun connectButton(view: View){

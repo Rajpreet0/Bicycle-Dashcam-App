@@ -99,11 +99,53 @@ class NetworkHelper {
         }
     }
 
+    fun updateUserData(
+        id: String,
+        lastname: String,
+        firstname: String,
+        gender: String,
+        birthday: String,
+        birthplace: String,
+        birthcountry: String,
+        address: String,
+        telephoneNumber: String,
+        email: String
+    ): JsonObject{
+        val json = JsonObject().apply {
+            addProperty("id", id)
+            addProperty("lastname", lastname)
+            addProperty("firstname", firstname)
+            addProperty("gender", gender)
+            addProperty("birthday", birthday)
+            addProperty("birthplace", birthplace)
+            addProperty("birthcountry", birthcountry)
+            addProperty("address", address)
+            addProperty("telephone_number", telephoneNumber)
+            addProperty("email", email)
+        }.toString()
+
+        val mediaType = "application/json; charset=utf-8".toMediaTypeOrNull()
+        val requestBody = json.toRequestBody(mediaType)
+
+        val request = Request.Builder()
+            .url(SERVER_ADDRESS_UPDATE_USER)
+            .put(requestBody)
+            .build()
+
+        client.newCall(request).execute().use { response ->
+            if (!response.isSuccessful) throw IOException("Unexpected code $response")
+
+            val responseData = response.body!!.string()
+            return Gson().fromJson(responseData, JsonObject::class.java)
+        }
+    }
+
     companion object {
         const val BASE_URL="http://10.0.2.2:5000"  // development - for Emulator
         //const val BASE_URL="https://bicycle-dashcam-server.vercel.app"
         const val SERVER_ADDRESS_LOGIN="$BASE_URL/login"
         const val SERVER_ADDRESS_REGISTER="$BASE_URL/register"
         const val SERVER_ADDRESS_DELETE_ACCOUNT="$BASE_URL/delete_user"
+        const val SERVER_ADDRESS_UPDATE_USER="$BASE_URL/update_user"
     }
 }
