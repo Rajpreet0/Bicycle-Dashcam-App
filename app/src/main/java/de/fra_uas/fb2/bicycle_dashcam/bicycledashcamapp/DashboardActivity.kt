@@ -24,7 +24,7 @@ class DashboardActivity : AppCompatActivity() {
 
     }
     fun historyButton(view: View){
-        val intent: Intent = Intent(this, HistoryActivity::class.java)
+        val intent: Intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()
     }

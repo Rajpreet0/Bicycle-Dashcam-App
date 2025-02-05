@@ -14,11 +14,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class RegisterScreenActivity : AppCompatActivity() {
+class SettingsEditActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_register_screen)
+        setContentView(R.layout.activity_settings_edit)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -69,18 +69,22 @@ class RegisterScreenActivity : AppCompatActivity() {
         parentLayout.addView(createEditText("Geburtsland"))
         parentLayout.addView(createEditText("Anschrift"))
         parentLayout.addView(createEditText("Telefonnummer"))
-        parentLayout.addView(createEditText("Email"))
-        parentLayout.addView(createEditText("Password"))
-        parentLayout.addView(createEditText("Repeat Password"))
     }
 
-    fun registerButton(view: View){
-        val intent: Intent = Intent(this, DashboardActivity::class.java)
+
+
+    fun historyButton(view: View){
+        val intent: Intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()
     }
-    fun backButton(view: View){
-        val intent: Intent = Intent(this,StartScreenActivity::class.java)
+    fun settingsButton(view: View){
+        val intent: Intent = Intent(this, SettingsActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+    fun dashboardButton(view: View){
+        val intent: Intent = Intent(this, DashboardActivity::class.java)
         startActivity(intent)
         finish()
     }
