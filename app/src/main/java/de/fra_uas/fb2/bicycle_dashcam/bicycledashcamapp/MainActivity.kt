@@ -33,22 +33,6 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
-                val response = networkHelper.login("john.doe@example.com", "password")  //TODO: Put in the input values
-                val userData = JSONObject(response.toString())
-                withContext(Dispatchers.Main) {
-                    Log.d("Data from Login:", userData.toString())
-                    sessionManager.createLoginSession(userData)
-                }
-            } catch (e: IOException) {
-                withContext(Dispatchers.Main) {
-                    Log.d("SERVER ERROR", "Login failed - ${e}")
-                    Toast.makeText(applicationContext, "Login failed", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
     }
 
     fun historyButton(view: View){
