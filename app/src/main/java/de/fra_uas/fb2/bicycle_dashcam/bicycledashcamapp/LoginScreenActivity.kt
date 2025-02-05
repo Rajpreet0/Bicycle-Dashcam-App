@@ -68,11 +68,11 @@ class LoginScreenActivity : AppCompatActivity() {
                 }
             }
         }
+        finish()
     }
     fun backButton(view: View){
         val intent: Intent = Intent(this, StartScreenActivity::class.java)
         startActivity(intent)
-        finish()
     }
 
 
