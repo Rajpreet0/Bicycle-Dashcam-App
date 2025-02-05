@@ -32,17 +32,14 @@ class StartScreenActivity : AppCompatActivity() {
     fun loginButton(view: View){
         val intent: Intent = Intent(this, LoginScreenActivity::class.java)
         startActivity(intent)
-        finish()
     }
     fun registerOnClick(view: View){
         val intent: Intent = Intent(this, RegisterScreenActivity::class.java)
         startActivity(intent)
-        finish()
     }
 
     fun navigateToDashboard() {
         val intent: Intent = Intent(this, DashboardActivity::class.java)
         startActivity(intent)
-        finish()
     }
 }

@@ -16,6 +16,7 @@ class DashboardActivity : AppCompatActivity() {
     private lateinit var sessionManager: SessionManager
     private lateinit var usernameText: TextView
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -34,21 +35,19 @@ class DashboardActivity : AppCompatActivity() {
     }
 
     fun connectButton(view: View){
-
+        val intent: Intent = Intent(this, ConnectionActivity::class.java)
+        startActivity(intent)
     }
     fun historyButton(view: View){
-        val intent: Intent = Intent(this, MainActivity::class.java)
+        val intent: Intent = Intent(this, HistoryActivity::class.java)
         startActivity(intent)
-        finish()
     }
     fun settingsButton(view: View){
         val intent: Intent = Intent(this, SettingsActivity::class.java)
         startActivity(intent)
-        finish()
     }
     fun dashboardButton(view: View){
         val intent: Intent = Intent(this, DashboardActivity::class.java)
         startActivity(intent)
-        finish()
     }
 }

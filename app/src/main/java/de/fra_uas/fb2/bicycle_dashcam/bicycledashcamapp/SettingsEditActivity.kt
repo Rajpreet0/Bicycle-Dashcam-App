@@ -146,11 +146,19 @@ class SettingsEditActivity : AppCompatActivity() {
                 }
             }
         }
+
+
+    fun historyButton(view: View){
+        val intent: Intent = Intent(this, HistoryActivity::class.java)
+        startActivity(intent)
+    }
+    fun settingsButton(view: View){
+        val intent: Intent = Intent(this, SettingsActivity::class.java)
+        startActivity(intent)
     }
 
     fun backButton(view: View) {
         val intent = Intent(this, SettingsActivity::class.java)
         startActivity(intent)
-        finish()
     }
 }
