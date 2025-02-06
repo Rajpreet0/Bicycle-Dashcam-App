@@ -83,7 +83,7 @@
             android:layout_width="301dp"
             android:layout_height="122dp"
             android:layout_marginTop="30dp"
-            android:background="#F3F3F3"
+            android:background="@drawable/bg_round_menu"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
