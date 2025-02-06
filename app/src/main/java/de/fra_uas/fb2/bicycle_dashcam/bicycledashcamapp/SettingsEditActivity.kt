@@ -168,4 +168,9 @@ class SettingsEditActivity : AppCompatActivity() {
         val intent = Intent(this, DashboardActivity::class.java)
         startActivity(intent)
     }
+
+    fun backButton(view: View) {
+        val intent: Intent = Intent(this, SettingsActivity::class.java)
+        startActivity(intent)
+    }
 }
