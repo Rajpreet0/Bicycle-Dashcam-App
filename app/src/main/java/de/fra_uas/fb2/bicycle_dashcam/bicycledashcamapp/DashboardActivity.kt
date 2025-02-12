@@ -35,7 +35,7 @@ class DashboardActivity : AppCompatActivity() {
     }
 
     fun connectButton(view: View){
-        val intent: Intent = Intent(this, ConnectionActivity::class.java)
+        val intent: Intent = Intent(this, DownloadActivity::class.java)
         startActivity(intent)
     }
     fun historyButton(view: View){
