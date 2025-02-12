@@ -25,13 +25,21 @@ class DownloadActivity : AppCompatActivity() {
             insets
         }
     }
-    fun downloadButton(view: View){
+    fun downloadVideoButton(view: View){
         downloadVideo()
+    }
+    fun downloadPDFButton(view: View){
+        downloadPDF()
     }
     fun historyButton(view: View){
         val intent: Intent = Intent(this, VideoActivity::class.java)
         startActivity(intent)
     }
+
+    private fun downloadPDF(){
+
+    }
+
     private fun downloadVideo() {
         // Replace with your Raspberry Pi’s IP and port if necessary
         val videoUrl = "http://192.168.0.174:5000/video.avi"
