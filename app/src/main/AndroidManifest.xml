@@ -24,9 +24,6 @@
             android:name=".DownloadActivity"
             android:exported="false" />
         <activity
-            android:name=".VideoActivity"
-            android:exported="false" />
-        <activity
             android:name=".ReportActivity"
             android:exported="false" />
         <activity
