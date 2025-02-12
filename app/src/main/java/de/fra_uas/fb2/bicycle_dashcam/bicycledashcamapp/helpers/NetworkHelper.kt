@@ -141,8 +141,8 @@ class NetworkHelper {
     }
 
     companion object {
-        const val BASE_URL="http://10.0.2.2:5000"  // development - for Emulator
-        //const val BASE_URL="https://bicycle-dashcam-server.vercel.app"
+        //const val BASE_URL="http://10.0.2.2:5000"  // development - for Emulator
+        const val BASE_URL="https://bicycle-dashcam-server.vercel.app"
         const val SERVER_ADDRESS_LOGIN="$BASE_URL/login"
         const val SERVER_ADDRESS_REGISTER="$BASE_URL/register"
         const val SERVER_ADDRESS_DELETE_ACCOUNT="$BASE_URL/delete_user"

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- This gives access to all files on external storage -->
+    <external-path name="external_files" path="." />
+    <!-- Alternatively, restrict access to the Downloads folder:
+         <external-path name="downloads" path="Download/" /> -->
+</paths>

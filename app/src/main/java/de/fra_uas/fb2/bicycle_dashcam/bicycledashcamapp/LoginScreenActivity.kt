@@ -57,20 +57,20 @@ class LoginScreenActivity : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                withContext(Dispatchers.Main) {
-                    loadingDialog.show(supportFragmentManager, "loadingDialog")
-                }
+//                withContext(Dispatchers.Main) {
+//                    loadingDialog.show(supportFragmentManager, "loadingDialog")
+//                }
                 val response = networkHelper.login(email.text.toString(), password.text.toString())
                 val userData = JSONObject(response.toString())
                 withContext(Dispatchers.Main) {
-                    loadingDialog.dismiss()
+//                    loadingDialog.dismiss()
                     Log.d("Data from Login:", userData.toString())
                     sessionManager.createLoginSession(userData)
                     startActivity(intent)
                 }
             } catch (e: IOException) {
                 withContext(Dispatchers.Main) {
-                    loadingDialog.dismiss()
+//                    loadingDialog.dismiss()
                     Log.d("SERVER ERROR", "Login failed - ${e}")
                     Toast.makeText(applicationContext, "Login failed", Toast.LENGTH_SHORT).show()
                 }

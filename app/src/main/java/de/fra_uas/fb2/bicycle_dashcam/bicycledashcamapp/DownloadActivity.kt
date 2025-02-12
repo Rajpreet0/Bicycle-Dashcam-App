@@ -34,7 +34,7 @@ class DownloadActivity : AppCompatActivity() {
     }
     private fun downloadVideo() {
         // Replace with your Raspberry Pi’s IP and port if necessary
-        val videoUrl = "http://192.168.0.175:5000/video.avi"
+        val videoUrl = "http://192.168.0.174:5000/video.avi"
         val uri = Uri.parse(videoUrl)
 
         // Create a DownloadManager.Request with the target URI
