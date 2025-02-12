@@ -32,7 +32,7 @@ class DownloadActivity : AppCompatActivity() {
         downloadPDF()
     }
     fun historyButton(view: View){
-        val intent: Intent = Intent(this, VideoActivity::class.java)
+        val intent: Intent = Intent(this, HistoryActivity::class.java)
         startActivity(intent)
     }
 
@@ -67,5 +67,12 @@ class DownloadActivity : AppCompatActivity() {
         // Optionally, you can show a toast to notify the user
         Toast.makeText(this, "Download started", Toast.LENGTH_SHORT).show()
         }
-
+    fun settingsButton(view: View){
+        val intent: Intent = Intent(this, SettingsActivity::class.java)
+        startActivity(intent)
+    }
+    fun dashboardButton(view: View){
+        val intent: Intent = Intent(this, DashboardActivity::class.java)
+        startActivity(intent)
+    }
 }
